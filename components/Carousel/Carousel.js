@@ -17,3 +17,54 @@
     <div class="right-button"> > </div>
   </div>
 */
+const carouselImgs = [ 
+  {
+    pic1: './assets/carousel/mountains.jpeg',
+    pic2: './assets/carousel/computer.jpeg',
+    pic3: './assets/carousel/trees.jpeg',
+    pic4: './assets/carousel/turntable.jpeg'
+  }
+]
+
+
+
+
+function carouselComponent (insertImg) {
+
+  // Creating Elements
+  const carousel = document.createElement('div');
+  const leftBtn = document.createElement('div');
+  const mountains = document.createElement('img');
+  const computer = document.createElement('img');
+  const trees = document.createElement('img');
+  const turntable = document.createElement('img');
+  const rightBtn = document.createElement('div');
+
+  // Structur Elements
+  carousel.appendChild(leftBtn);
+  carousel.appendChild(mountains);
+  carousel.appendChild(computer);
+  carousel.appendChild(trees);
+  carousel.appendChild(turntable);
+  carousel.appendChild(rightBtn);
+
+  // Element Content
+  mountains.src = insertImg.pic1;
+  computer.src = insertImg.pic2;
+  trees.src = insertImg.pic3;
+  turntable.src = insertImg.pic4;
+
+  // Class Elements
+  carousel.classList.add('carousel');
+  leftBtn.classList.add('left-button');
+  rightBtn.classList.add('right-button');
+
+  return carousel
+}
+
+const carouselContainer = document.querySelector('.carousel-container');
+
+carouselImgs.forEach(img => {
+  carouselContainer.appendChild(carouselComponent(img));
+})
+
